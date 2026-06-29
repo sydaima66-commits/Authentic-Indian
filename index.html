@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- Basic Meta & SEO -->
+<title>Authentic Indian Flavours | Premium Indian Restaurant in City</title>
+<meta name="description" content="Experience authentic Indian cuisine prepared with traditional recipes and fresh ingredients. Luxurious ambiance, Michelin-quality dishes, and memorable dining experience." />
+
+<!-- Open Graph / Social Media -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Authentic Indian Flavours | Premium Indian Restaurant" />
+<meta property="og:description" content="Experience authentic Indian cuisine prepared with traditional recipes and fresh ingredients. Luxurious ambiance, Michelin-quality dishes, and memorable dining experience." />
+<meta property="og:url" content="https://yourwebsite.com" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1609992354842-2c4f4b9a8f25" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Authentic Indian Flavours | Premium Indian Restaurant" />
+<meta name="twitter:description" content="Experience authentic Indian cuisine prepared with traditional recipes and fresh ingredients. Luxurious ambiance, Michelin-quality dishes, and memorable dining experience." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1609992354842-2c4f4b9a8f25" />
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Authentic Indian Flavours",
+  "image": "https://images.unsplash.com/photo-1609992354842-2c4f4b9a8f25",
+  "telephone": "+911234567890",
+  "email": "info@indianrestaurant.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "123 Indian Street",
+    "addressLocality": "City",
+    "addressCountry": "Country",
+    "postalCode": "000000"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "120"
+  },
+  "url": "https://yourwebsite.com",
+  "priceRange": "$$",
+  "menu": "https://yourwebsite.com/menu"
+}
+</script>
+
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<!-- AOS for scroll animations -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+<style>
+/* Reset & Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+button {
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border: none; border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+/* Utility Classes */
+.container {
+  width: 90%; max-width: 1200px; margin: 0 auto;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background-color: rgba(255,255,255,0.3); border-radius: 4px; }
+
+/* Header & Navbar */
+header {
+  position: sticky; top: 0; z-index: 9999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(18, 18, 18, 0.7);
+  display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;
+}
+.logo {
+  font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #ffd700; font-weight: 700;
+}
+nav {
+  display: flex; gap: 1.5rem;
+}
+nav a {
+  font-weight: 600; font-size: 0.95rem; color: #fff; padding: 0.5rem 1rem; border-radius: 4px; transition: background-color 0.3s;
+}
+nav a:hover { background-color: rgba(255, 215, 0, 0.2); }
+.menu-toggle { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
+
+/* Scroll Progress */
+#scrollProgress {
+  position: fixed; top: 0; left: 0; height: 4px;
+  width: 0%; background: linear-gradient(to right, #ffd700, #ffa500); z-index: 1000;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0 2rem;
+}
+.hero-background {
+  position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1609992354842-2c4f4b9a8f25'); background-size: cover; background-position: center; filter: brightness(0.4); transform: scale(1.05); transition: all 0.5s ease;
+}
+.hero-content {
+  position: relative; text-align: center; max-width: 900px; z-index: 1; opacity: 0; transform: translateY(20px); animation: fadeIn 1s forwards;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem;
+}
+.hero p {
+  font-size: 1.2rem; margin-bottom: 2rem;
+}
+.hero-buttons { display: flex; gap: 1rem; justify-content: center; }
+.btn {
+  padding: 0.75rem 1.5rem; font-weight: 600; font-size: 1rem; border-radius: 50px; transition: all 0.3s;
+}
+.btn.primary {
+  background-color: #ffd700; color: #121212;
+}
+.btn.primary:hover { background-color: #e6c200; }
+.btn.outline {
+  background-color: transparent; border: 2px solid #ffd700; color: #ffd700;
+}
+.btn.outline:hover { background-color: #ffd700; color: #121212; }
+
+@keyframes fadeIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* About */
+#about {
+  padding: 4rem 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2rem;
+}
+#about p { max-width: 700px; font-size: 1.1rem; line-height: 1.6; }
+#about img { max-width: 800px; border-radius: 8px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+
+ /* Why Us */
+#whyus {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem; padding: 4rem 0; background-color: transparent;
+}
+.card {
+  background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.3s, box-shadow 0.3s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.card i { font-size: 2.5rem; color: #ffd700; margin-bottom: 1rem; }
+.card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+.card p { font-size: 0.95rem; text-align: center; }
+
+ /* Signature Dishes */
+#signature {
+  padding: 4rem 0; }
+#signature h2 { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
+.dishes-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.dish-card {
+  background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.dish-card:hover { transform: scale(1.02); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.dish-image { height: 200px; overflow: hidden; }
+.dish-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.dish-details { padding: 1rem; }
+.dish-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 0.5rem; }
+.dish-desc { font-size: 0.95rem; margin-bottom: 0.5rem; }
+.dish-price { font-weight: 600; font-size: 1.1rem; }
+
+ /* Full Menu */
+#fullmenu {
+  padding: 4rem 0; max-width: 1200px; margin: 0 auto; }
+#fullmenu h2 { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
+.menu-category { margin-bottom: 3rem; }
+.category-title {
+  font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #ffd700; display: inline-block; padding-bottom: 0.5rem; }
+.menu-items {
+  display: flex; flex-direction: column; gap: 1.5rem; }
+.menu-item {
+  display: flex; align-items: center; background: rgba(255,255,255,0.05); border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.menu-item:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.menu-img { width: 150px; height: 100px; overflow: hidden; flex-shrink: 0; }
+.menu-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.menu-details { padding: 0.75rem 1rem; display: flex; flex-direction: column; justify-content: center; flex: 1; }
+.menu-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; margin-bottom: 0.3rem; }
+.menu-desc { font-size: 0.9rem; flex-grow: 1; }
+.menu-price { font-weight: 600; font-size: 1.1rem; margin-top: 0.5rem; }
+.badge {
+  position: absolute; top: 10px; right: 10px; background-color: #ffd700; color: #121212; padding: 0.3rem 0.6rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; z-index: 2; }
+
+/* Gallery */
+#gallery {
+  padding: 4rem 0; }
+#gallery h2 { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
+#gallery .masonry {
+  column-count: 1; column-gap: 1rem; }
+@media (min-width: 768px) {
+  #gallery .masonry { column-count: 3; } }
+.gallery-item {
+  display: inline-block; width: 100%; margin-bottom: 1rem; overflow: hidden; border-radius: 8px; transition: transform 0.3s; }
+.gallery-item img { width: 100%; display: block; transition: transform 0.3s; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+ /* Testimonials */
+#testimonials {
+  padding: 4rem 0; background-color: transparent; }
+#testimonials h2 { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
+#testimonialCarousel {
+  display: flex; overflow-x: auto; gap: 1.5rem; padding: 1rem 0; scrollbar-width: none; }
+#testimonialCarousel::-webkit-scrollbar { display: none; }
+.testimonial-card {
+  min-width: 250px; background: rgba(255,255,255,0.05); border-radius: 12px; padding: 1.5rem; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+.testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+.testimonial p { font-style: italic; margin-bottom: 1rem; }
+.rating { color: #ffd700; }
+.name { margin-top: 1rem; font-weight: 600; }
+
+ /* Reservation */
+#reservation {
+  padding: 4rem 0; }
+#reservation h2 { text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
+.form-container { max-width: 700px; margin: 0 auto; }
+form {
+  display: flex; flex-wrap: wrap; gap: 1rem; }
+input, select, textarea {
+  flex: 1 1 45%; padding: 0.75rem; border-radius: 8px; border: none; background-color: rgba(255,255,255,0.1); color: #fff; font-size: 1rem; }
+input:focus, select:focus, textarea:focus { outline: none; background-color: rgba(255,255,255,0.2); }
+.full-width { flex: 1 1 100%; }
+button[type="submit"] {
+  background-color: #ffd700; color: #121212; padding: 0.75rem 2rem; border-radius: 50px; font-weight: 600; font-size: 1.1rem; margin-top: 1rem; align-self: center; }
+button[type="submit"]:hover { background-color: #e6c200; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+
+ /* Contact */
+#contact {
+  padding: 4rem 0; display: flex; flex-direction: column; align-items: center; text-align: center; }
+#contact h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 2rem; }
+.contact-info {
+  display: flex; flex-direction: column; gap: 1rem; max-width: 600px; width: 100%; }
+.contact-info a {
+  display: flex; align-items: center; gap: 0.75rem; color: #fff; font-size: 1.1rem; transition: color 0.3s; }
+.contact-info a:hover { color: #ffd700; }
+#map { margin-top: 2rem; width: 100%; height: 300px; border-radius: 8px; overflow: hidden; }
+
+ /* Footer */
+footer {
+  background-color: #1f1f1f; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; font-size: 0.9rem; color: #ccc; }
+footer .quick-links {
+  margin-bottom: 1rem; display: flex; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+footer .social-icons {
+  margin-top: 1rem; display: flex; gap: 1.5rem; }
+footer .social-icons a { color: #ccc; font-size: 1.2rem; transition: color 0.3s; }
+footer .social-icons a:hover { color: #ffd700; }
+
+@media(max-width: 768px){
+  nav { display: none; }
+  .menu-toggle { display: block; }
+}
+
+/* Back to Top Button */
+#backToTop {
+  position: fixed; bottom: 30px; right: 30px; background-color: #ffd700; color: #121212; padding: 0.75rem; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3); font-size: 1.2rem; display: none; z-index: 9999; transition: background-color 0.3s, transform 0.3s; }
+#backToTop:hover { background-color: #e6c200; transform: scale(1.1); }
+
+/* Loading Screen */
+#loadingScreen {
+  position: fixed; inset: 0; background-color: #121212; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 2rem; color: #ffd700; z-index: 99999; animation: fadeOut 1s ease-out forwards; }
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* Animate on hover for images for a subtle zoom effect */
+img.hover-zoom:hover { transform: scale(1.05); transition: transform 0.3s; }
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div id="loadingScreen">Loading...</div>
+
+<!-- Scroll Progress -->
+<div id="scrollProgress"></div>
+
+<!-- Sticky Navbar -->
+<header>
+  <div class="logo">Authentic Indian</div>
+  <nav aria-label="Main Navigation" id="navbar">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#whyus">Why Choose Us</a>
+    <a href="#signature">Signature</a>
+    <a href="#fullmenu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#reservation">Reserve</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="menu-toggle" aria-label="Toggle Menu" id="menuToggle"><i class="fas fa-bars"></i></div>
+</header>
+
+<!-- Hero -->
+<section id="hero" class="hero" aria-label="Hero Section">
+  <div class="hero-background"></div>
+  <div class="hero-content" data-aos="fade-in">
+    <h1>Authentic Indian Flavours</h1>
+    <p>Fresh ingredients. Timeless recipes. Memorable dining.</p>
+    <div class="hero-buttons">
+      <a href="#fullmenu" class="btn primary">View Menu</a>
+      <a href="#reservation" class="btn outline">Reserve Table</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="about" data-aos="fade-up">
+  <p>Serving authentic Indian cuisine prepared with traditional recipes and fresh ingredients. Every meal is crafted to bring families and friends together.</p>
+  <div class="about-image">
+    <img src="https://images.unsplash.com/photo-1618336500930-7f8f7d8d0a4a" alt="Indian Restaurant Interior" loading="lazy" />
+  </div>
+</section>
+
+<!-- Why Us -->
+<section id="whyus" class="why-us" data-aos="fade-up">
+  <div class="card"><i class="fas fa-utensils"></i><h3>Authentic Indian Taste</h3></div>
+  <div class="card"><i class="fas fa-leaf"></i><h3>Fresh Ingredients</h3></div>
+  <div class="card"><i class="fas fa-shield-alt"></i><h3>Hygienic Kitchen</h3></div>
+  <div class="card"><i class="fas fa-users"></i><h3>Family Friendly</h3></div>
+  <div class="card"><i class="fas fa-clock"></i><h3>Fast Service</h3></div>
+  <div class="card"><i class="fas fa-tag"></i><h3>Affordable Pricing</h3></div>
+</section>
+
+<!-- Signature Dishes -->
+<section id="signature" class="signature" data-aos="fade-up">
+  <h2>Signature Dishes</h2>
+  <div class="dishes-grid">
+    <!-- Food images from Unsplash, replace as needed -->
+    <div class="dish-card" aria-hidden="true">
+      <div class="dish-image"><img src="https://images.unsplash.com/photo-1598526481370-9d5d4e4e2b94" alt="Butter Chicken" loading="lazy" class="hover-zoom" /></div>
+      <div class="dish-details">
+        <div class="dish-name">Butter Chicken</div>
+        <div class="dish-desc">Creamy tomato-based chicken curry</div>
+        <div class="dish-price">₹420</div>
+      </div>
+    </div>
+    <div class="dish-card" aria-hidden="true">
+      <div class="dish-image"><img src="https://images.unsplash.com/photo-1613715052299-2b03a7b68200" alt="Chicken Biryani" loading="lazy" class="hover-zoom" /></div>
+      <div class="dish-details">
+        <div class="dish-name">Chicken Biryani</div>
+        <div class="dish-desc">Fragrant rice with tender chicken</div>
+        <div class="dish-price">₹340</div>
+      </div>
+    </div>
+    <div class="dish-card" aria-hidden="true">
+      <div class="dish-image"><img src="https://images.unsplash.com/photo-1606902468258-2f7954c3f9b4" alt="Paneer Butter Masala" loading="lazy" class="hover-zoom" /></div>
+      <div class="dish-details">
+        <div class="dish-name">Paneer Butter Masala</div>
+        <div class="dish-desc">Creamy tomato and paneer curry</div>
+        <div class="dish-price">₹320</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Menu -->
+<section id="fullmenu" class="menu" aria-label="Full Menu">
+  <h2 class="scroll-reveal">Full Menu</h2>
+  <!-- Starters -->
+  <div class="menu-category" id="starters">
+    <div class="category-title">Starters</div>
+    <div class="menu-items">
+      <div class="menu-item" aria-hidden="true">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1596786908030-4f6c4b6f0d1b" alt="Veg Spring Roll" loading="lazy" class="hover-zoom" /></div>
+        <div class="menu-details">
+          <div class="menu-name">Veg Spring Roll</div>
+          <div class="menu-desc">Crispy vegetable rolls</div>
+          <div class="menu-price">₹180</div>
+        </div>
+        <div class="badge">Veg</div>
+      </div>
+      <div class="menu-item" aria-hidden="true">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1606821866574-9f8b2a586645" alt="Chicken 65" loading="lazy" class="hover-zoom" /></div>
+        <div class="menu-details">
+          <div class="menu-name">Chicken 65</div>
+          <div class="menu-desc">Spicy fried chicken bites</div>
+          <div class="menu-price">₹320</div>
+        </div>
+        <div class="badge">Non-Veg</div>
+      </div>
+    </div>
+  </div>
+  <!-- Vegetarian Main Course -->
+  <div class="menu-category" id="veg-main">
+    <div class="category-title">Vegetarian Main Course</div>
+    <div class="menu-items">
+      <div class="menu-item" aria-hidden="true">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1603517209042-0f7a1e1a9bc4" alt="Paneer Butter Masala" loading="lazy" class="hover-zoom" /></div>
+        <div class="menu-details">
+          <div class="menu-name">Paneer Butter Masala</div>
+          <div class="menu-desc">Creamy tomato and paneer curry</div>
+          <div class="menu-price">₹320</div>
+        </div>
+        <div class="badge">Veg</div>
+      </div>
+    </div>
+  </div>
+  <!-- Non-Veg Main Course -->
+  <div class="menu-category" id="nonveg-main">
+    <div class="category-title">Non-Vegetarian Main Course</div>
+    <div class="menu-items">
+      <div class="menu-item" aria-hidden="true">
+        <div class="menu-img"><img src="https://images.unsplash.com/photo-1598526481370-9d5d4e4e2b94" alt="Butter Chicken" loading="lazy" class="hover-zoom" /></div>
+        <div class="menu-details">
+          <div class="menu-name">Butter Chicken</div>
+          <div class="menu-desc">Creamy tomato-based chicken curry</div>
+          <div class="menu-price">₹420</div>
+        </div>
+        <div class="badge">Non-Veg</div>
+      </div>
+    </div>
+  </div>
+  <!-- Add more categories similarly -->
+</section>
+
+<!-- Gallery with Food and Interior Images -->
+<section id="gallery" class="gallery" aria-label="Gallery of Food and Interior">
+  <h2 class="scroll-reveal">Gallery</h2>
+  <div class="masonry" id="galleryContainer">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1606902468258-2f7954c3f9b4" alt="Indian Food Plate" loading="lazy" class="hover-zoom" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1613715052299-2b03a7b68200" alt="Biryani" loading="lazy" class="hover-zoom" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1598526481370-9d5d4e4e2b94" alt="Tandoor Oven" loading="lazy" class="hover-zoom" /></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1608560829544-46d3f4b7b4d4" alt="Indian Desserts" loading="lazy" class="hover-zoom" /></div>
+  </div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section id="testimonials" class="testimonials" aria-label="Customer Testimonials">
+  <h2 class="scroll-reveal">What Our Guests Say</h2>
+  <div id="testimonialCarousel" class="carousel" data-aos="fade-up">
+    <div class="testimonial-card" aria-hidden="true">
+      <p>"Exceptional flavors and warm ambiance. A true taste of India!"</p>
+      <div class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star-half-alt"></i></div>
+      <div class="name">Ravi K.</div>
+    </div>
+    <div class="testimonial-card" aria-hidden="true">
+      <p>"Authentic dishes served with love. Highly recommended."</p>
+      <div class="rating"><i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i class="far fa-star"></i></div>
+      <div class="name">Sita M.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Reservation -->
+<section id="reservation" class="reservation" aria-label="Reservation">
+  <h2 class="scroll-reveal">Reserve Your Table</h2>
+  <div class="form-container">
+    <form id="reservationForm" aria-label="Reservation Form" novalidate>
+      <input type="text" name="name" placeholder="Name" required aria-label="Name" />
+      <input type="tel" name="phone" placeholder="Phone" required aria-label="Phone" pattern="[0-9]{10,15}" />
+      <input type="number" name="guests" placeholder="Guests" min="1" required aria-label="Number of Guests" />
+      <input type="date" name="date" required aria-label="Date" />
+      <input type="time" name="time" required aria-label="Time" />
+      <textarea name="requests" rows="3" placeholder="Special Requests" aria-label="Special Requests"></textarea>
+      <button type="submit" class="btn primary">Book Now</button>
+    </form>
+  </div>
+</section>
+
+<!-- Contact Info -->
+<section id="contact" class="contact" aria-label="Contact Info">
+  <h2 class="scroll-reveal">Contact Us</h2>
+  <div class="contact-info">
+    <a href="https://goo.gl/maps/yourmap" target="_blank" rel="noopener"><i class="fas fa-map-marker-alt"></i> 123 Indian Street, City, Country</a>
+    <a href="tel:+911234567890"><i class="fas fa-phone"></i> +91 12345 67890</a>
+    <a href="mailto:info@indianrestaurant.com"><i class="fas fa-envelope"></i> info@indianrestaurant.com</a>
+  </div>
+  <!-- Google Map -->
+  <div id="map">
+    <iframe src="https://maps.google.com/maps?q=your+address+here&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" aria-label="Map of location"></iframe>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="quick-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#whyus">Why Choose Us</a>
+    <a href="#signature">Signature</a>
+    <a href="#fullmenu">Menu</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#reservation">Reserve</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="social-icons">
+    <a href="#" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <p>&copy; 2024 Authentic Indian Flavours. All rights reserved.</p>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="backToTop" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></button>
+
+<!-- Scripts for animations & interactions -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+
+<script>
+/* Initialization */
+window.addEventListener('load', () => {
+  document.getElementById('loadingScreen').style.display='none';
+  AOS.init({ duration: 1000, once: true });
+});
+
+/* Scroll progress indicator */
+window.onscroll = () => {
+  const scrollTop = window.scrollY;
+  const height = document.documentElement.scrollHeight - window.innerHeight;
+  const percent = (scrollTop / height) * 100;
+  document.getElementById('scrollProgress').style.width = percent + '%';
+
+  // Show/hide back to top
+  const btn = document.getElementById('backToTop');
+  if (scrollTop > 300) { btn.style.display='block'; }
+  else { btn.style.display='none'; }
+};
+
+/* Back to Top */
+document.getElementById('backToTop').addEventListener('click', ()=> {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* Toggle menu on mobile */
+const menuToggle = document.getElementById('menuToggle');
+const nav = document.querySelector('nav');
+menuToggle.addEventListener('click', () => {
+  if (nav.style.display === 'flex') {
+    nav.style.display='none';
+  } else {
+    nav.style.display='flex';
+    nav.style.flexDirection='column';
+    nav.style.backgroundColor='rgba(18,18,18,0.9)';
+    nav.style.position='absolute';
+    nav.style.top='60px'; nav.style.right='20px'; nav.style.padding='1rem';
+  }
+});
+
+/* Animate sections with AOS */
+const observer = new IntersectionObserver((entries, obs) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.scroll-reveal').forEach(el => {
+  el.classList.add('opacity-0');
+  observer.observe(el);
+});
+
+/* Animate gallery images zoom on hover handled in CSS */
+
+/* Testimonials auto-scroll */
+const carousel = document.getElementById('testimonialCarousel');
+setInterval(() => {
+  carousel.scrollBy({ left: 300, behavior: 'smooth' });
+  if (carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth) {
+    carousel.scrollTo({ left: 0, behavior: 'smooth' });
+  }
+}, 4000);
+
+/* Reservation form submission (simulate) */
+document.getElementById('reservationForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Thank you! Your reservation request has been received.');
+  e.target.reset();
+});
+</script>
+</body>
+</html>
